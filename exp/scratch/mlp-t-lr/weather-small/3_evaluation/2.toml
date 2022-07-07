@@ -1,0 +1,54 @@
+seed = 2
+
+[data]
+path = "data/weather-small"
+T_cache = true
+
+[data.T]
+seed = 0
+normalization = "quantile"
+num_nan_policy = "__none__"
+cat_nan_policy = "__none__"
+cat_min_frequency = "__none__"
+cat_encoding = "__none__"
+y_policy = "default"
+
+[model]
+kind = "mlp"
+default = true
+checkpoint = "__none__"
+num_embedding_arch = [
+    "linear",
+    "relu",
+]
+d_num_embedding = 71
+d_cat_embedding = "__none__"
+positional_encoding = "__none__"
+
+[model.config]
+d_layers = [
+    512,
+    512,
+    512,
+    512,
+    512,
+]
+dropout = 0.019005058843905895
+
+[training]
+batch_size = 1024
+lr = 0.00017406400908767894
+weight_decay = 0.00048018957885530083
+optimizer = "AdamW"
+patience = 16
+n_epochs = inf
+eval_batch_size = 1024
+
+[bins]
+count = 123
+value = "ratio"
+subsample = "__none__"
+
+[bins.tree]
+min_samples_leaf = 124
+min_impurity_decrease = 0.00014354877809628244

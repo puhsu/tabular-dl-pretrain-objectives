@@ -1,0 +1,188 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/augmented_supervised___17572e0511334ab6bffc8c39c0985bf8.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 13,
+        "data": {
+            "path": "data/california",
+            "T": {
+                "seed": 0,
+                "normalization": "quantile",
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": true
+        },
+        "model": {
+            "kind": "mlp",
+            "config": {
+                "d_layers": [
+                    512,
+                    512,
+                    512,
+                    512,
+                    512
+                ],
+                "dropout": 0.0
+            },
+            "default": true,
+            "checkpoint": null,
+            "num_embedding_arch": [],
+            "d_num_embedding": null,
+            "d_cat_embedding": null,
+            "positional_encoding": null
+        },
+        "training": {
+            "batch_size": 128,
+            "lr": 0.0003496152660842005,
+            "weight_decay": 0.0002728746521234192,
+            "optimizer": "AdamW",
+            "patience": 16,
+            "n_epochs": Infinity,
+            "eval_batch_size": 8192
+        },
+        "pretrain": {
+            "corrupt_probability": 0.2589183140052051,
+            "corrupt_strategy": "resample",
+            "d_hidden_head": 512,
+            "lr": 0.0003496152660842005,
+            "weight_decay": 0.0002728746521234192,
+            "loss_masked": false,
+            "patience": 2,
+            "n_iterations": 100000,
+            "validate_every": 10000,
+            "replace_strategy": "shuffle",
+            "use_target": false,
+            "early_stop_type": "finetune",
+            "supervised_weight": 0.5,
+            "predict_residual": false
+        },
+        "bins": null
+    },
+    "prediction_type": null,
+    "epoch_size": 104,
+    "n_parameters": 1322505,
+    "metrics": {
+        "iteration_scores": {
+            "10000": {
+                "train": {
+                    "score": -0.46121498140185085,
+                    "pretrain_loss": 0.7400642782449722
+                },
+                "val": {
+                    "score": -0.5123765858978238,
+                    "pretrain_loss": 0.76726433634758
+                },
+                "test": {
+                    "score": -0.504148814776124,
+                    "pretrain_loss": 0.733466625213623
+                }
+            },
+            "20000": {
+                "train": {
+                    "score": -0.40852156276419516,
+                    "pretrain_loss": 0.7151791304349899
+                },
+                "val": {
+                    "score": -0.4889565273996784,
+                    "pretrain_loss": 0.7410430908203125
+                },
+                "test": {
+                    "score": -0.48422045252171236,
+                    "pretrain_loss": 0.7142971754074097
+                }
+            },
+            "30000": {
+                "train": {
+                    "score": -0.3676157851414166,
+                    "pretrain_loss": 0.6728214174509048
+                },
+                "val": {
+                    "score": -0.4743715580984859,
+                    "pretrain_loss": 0.7279309332370758
+                },
+                "test": {
+                    "score": -0.46843047052074743,
+                    "pretrain_loss": 0.7030174136161804
+                }
+            },
+            "40000": {
+                "train": {
+                    "score": -0.35674738173573295,
+                    "pretrain_loss": 0.66002456843853
+                },
+                "val": {
+                    "score": -0.47579973034181877,
+                    "pretrain_loss": 0.7236794531345367
+                },
+                "test": {
+                    "score": -0.46900642507474943,
+                    "pretrain_loss": 0.7023498117923737
+                }
+            },
+            "50000": {
+                "train": {
+                    "score": -0.3386560967413266,
+                    "pretrain_loss": 0.6347954720258713
+                },
+                "val": {
+                    "score": -0.47642510658980675,
+                    "pretrain_loss": 0.7283754050731659
+                },
+                "test": {
+                    "score": -0.4649186632568121,
+                    "pretrain_loss": 0.7105349004268646
+                }
+            },
+            "60000": {
+                "train": {
+                    "score": -0.3350112766972589,
+                    "pretrain_loss": 0.6130023002624512
+                },
+                "val": {
+                    "score": -0.4979698343623817,
+                    "pretrain_loss": 0.7142017185688019
+                },
+                "test": {
+                    "score": -0.4824384495836797,
+                    "pretrain_loss": 0.7043042182922363
+                }
+            }
+        },
+        "train": {
+            "score": -0.3676157851414166
+        },
+        "val": {
+            "score": -0.4743715580984859
+        },
+        "test": {
+            "score": -0.46843047052074743
+        }
+    },
+    "best_iteration": 30000,
+    "time": "0:04:00"
+}

@@ -1,0 +1,75 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/archive/xgboost____a29d269b981e43db8eecfa9776a355a9.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 1,
+        "data": {
+            "path": "data/weather-small",
+            "T": {
+                "seed": 0,
+                "normalization": null,
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": false
+        },
+        "xgboost": {
+            "booster": "gbtree",
+            "n_estimators": 2000,
+            "n_jobs": 1,
+            "tree_method": "gpu_hist",
+            "colsample_bytree": 0.8356808895677774,
+            "gamma": 0,
+            "lambda": 9.933720876239509,
+            "learning_rate": 0.048589148287799824,
+            "max_depth": 10,
+            "min_child_weight": 9.314238112906173,
+            "subsample": 0.8193890729275197,
+            "random_state": 1
+        },
+        "xgboost_fit": {
+            "early_stopping_rounds": 50,
+            "verbose": true
+        }
+    },
+    "prediction_type": null,
+    "metrics": {
+        "train": {
+            "rmse": 0.6652922432330756,
+            "score": -0.6652922432330756
+        },
+        "val": {
+            "rmse": 1.7995707245982617,
+            "score": -1.7995707245982617
+        },
+        "test": {
+            "rmse": 1.8023120337905125,
+            "score": -1.8023120337905125
+        }
+    },
+    "time": "0:04:12"
+}

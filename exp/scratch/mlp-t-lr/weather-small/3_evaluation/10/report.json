@@ -1,0 +1,135 @@
+{
+    "program": "/home/irubachev/repos/pretrains/bin/finetune_ddp___ab457b1f1d3346f9a86ae13a1cfbb16c.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "3,4",
+        "gpus": {
+            "driver": "470.63.01",
+            "devices": [
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 78109671424,
+                    "memory_used": 7088373760,
+                    "utilization": 100
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 72457846784,
+                    "memory_used": 12740198400,
+                    "utilization": 100
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 22972399616,
+                    "memory_used": 62225645568,
+                    "utilization": 100
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 53353840640,
+                    "memory_used": 31844204544,
+                    "utilization": 98
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 57759956992,
+                    "memory_used": 27438088192,
+                    "utilization": 95
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 72278540288,
+                    "memory_used": 12919504896,
+                    "utilization": 13
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 10,
+        "data": {
+            "path": "data/weather-small",
+            "T": {
+                "seed": 0,
+                "normalization": "quantile",
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": true
+        },
+        "model": {
+            "kind": "mlp",
+            "config": {
+                "d_layers": [
+                    512,
+                    512,
+                    512,
+                    512,
+                    512
+                ],
+                "dropout": 0.019005058843905895
+            },
+            "default": true,
+            "checkpoint": null,
+            "num_embedding_arch": [
+                "linear",
+                "relu"
+            ],
+            "d_num_embedding": 71,
+            "d_cat_embedding": null,
+            "positional_encoding": null
+        },
+        "training": {
+            "batch_size": 1024,
+            "lr": 0.00017406400908767894,
+            "weight_decay": 0.00048018957885530083,
+            "optimizer": "AdamW",
+            "patience": 16,
+            "n_epochs": Infinity,
+            "eval_batch_size": 1024
+        },
+        "bins": {
+            "count": 123,
+            "value": "ratio",
+            "tree": {
+                "min_samples_leaf": 124,
+                "min_impurity_decrease": 0.00014354877809628244
+            },
+            "subsample": null
+        }
+    },
+    "n_parameters": 6605837,
+    "prediction_type": null,
+    "epoch_size": 290,
+    "best_epoch": 24,
+    "metrics": {
+        "train": {
+            "rmse": 1.6889487828295988,
+            "score": -1.6889487828295988
+        },
+        "val": {
+            "rmse": 1.895382853493474,
+            "score": -1.895382853493474
+        },
+        "test": {
+            "rmse": 1.8935167887745374,
+            "score": -1.8935167887745374
+        }
+    },
+    "time": "0:09:03"
+}

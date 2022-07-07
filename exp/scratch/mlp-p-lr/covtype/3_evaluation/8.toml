@@ -1,0 +1,50 @@
+seed = 8
+bins = "__none__"
+
+[data]
+path = "data/covtype"
+T_cache = true
+
+[data.T]
+seed = 0
+normalization = "quantile"
+num_nan_policy = "__none__"
+cat_nan_policy = "__none__"
+cat_min_frequency = "__none__"
+cat_encoding = "__none__"
+y_policy = "default"
+
+[model]
+kind = "mlp"
+default = true
+checkpoint = "__none__"
+num_embedding_arch = [
+    "positional",
+    "linear",
+    "relu",
+]
+d_num_embedding = 9
+d_cat_embedding = "__none__"
+
+[model.config]
+d_layers = [
+    512,
+    512,
+    512,
+]
+dropout = 0.25503607931458583
+
+[model.positional_encoding]
+n = 102
+sigma = 1.5595532588544505
+trainable = true
+initialization = "normal"
+
+[training]
+batch_size = 1024
+lr = 0.00035067342294968983
+weight_decay = 0.0
+optimizer = "AdamW"
+patience = 16
+n_epochs = inf
+eval_batch_size = 1024

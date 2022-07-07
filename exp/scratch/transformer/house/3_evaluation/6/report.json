@@ -1,0 +1,90 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/finetune___1c1bd2cb5d99444c9806713b82ef3def.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 6,
+        "data": {
+            "path": "data/house",
+            "T": {
+                "seed": 0,
+                "normalization": "quantile",
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": true
+        },
+        "model": {
+            "kind": "transformer",
+            "config": {
+                "n_blocks": 1,
+                "attention_dropout": 0.05558432916598251,
+                "ffn_dropout": 0.1081748591570703,
+                "last_layer_query_idx": [
+                    -1
+                ],
+                "ffn_d_hidden": 622
+            },
+            "default": true,
+            "checkpoint": null,
+            "num_embedding_arch": [
+                "linear"
+            ],
+            "d_num_embedding": 512,
+            "d_cat_embedding": null,
+            "positional_encoding": null
+        },
+        "training": {
+            "batch_size": 128,
+            "lr": 0.00014262385233971737,
+            "weight_decay": 1.53871280683646e-05,
+            "optimizer": "AdamW",
+            "patience": 16,
+            "n_epochs": Infinity,
+            "eval_batch_size": 8192
+        },
+        "bins": null
+    },
+    "prediction_type": null,
+    "epoch_size": 114,
+    "n_parameters": 2027229,
+    "best_epoch": 44,
+    "metrics": {
+        "train": {
+            "rmse": 24149.91773951747,
+            "score": -24149.91773951747
+        },
+        "val": {
+            "rmse": 28866.479750790462,
+            "score": -28866.479750790462
+        },
+        "test": {
+            "rmse": 32261.562107243404,
+            "score": -32261.562107243404
+        }
+    },
+    "time": "0:00:52"
+}

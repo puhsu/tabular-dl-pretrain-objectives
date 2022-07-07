@@ -1,0 +1,360 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/tune.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0,1",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                },
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 0,
+        "program": "bin/pretrain_ae_supervised_ddp.py",
+        "base_config": {
+            "seed": 0,
+            "data": {
+                "T_cache": true,
+                "path": "data/covtype",
+                "T": {
+                    "normalization": "quantile"
+                }
+            },
+            "model": {
+                "kind": "mlp",
+                "num_embedding_arch": [
+                    "positional",
+                    "linear",
+                    "relu"
+                ],
+                "positional_encoding": {
+                    "trainable": true,
+                    "initialization": "normal"
+                }
+            },
+            "training": {
+                "batch_size": 1024,
+                "patience": 16
+            },
+            "pretrain": {
+                "corrupt_strategy": "resample",
+                "patience": 2,
+                "d_hidden_head": 512,
+                "replace_strategy": "shuffle",
+                "use_target": false,
+                "early_stop_type": "pretrain"
+            }
+        },
+        "space": {
+            "model": {
+                "d_num_embedding": [
+                    "int",
+                    1,
+                    128
+                ],
+                "config": {
+                    "d_layers": [
+                        "$fixed_mlp_d_layers",
+                        1,
+                        8,
+                        512
+                    ],
+                    "dropout": [
+                        "?uniform",
+                        0.0,
+                        0.0,
+                        0.5
+                    ]
+                },
+                "positional_encoding": {
+                    "n": [
+                        "int",
+                        1,
+                        128
+                    ],
+                    "sigma": [
+                        "loguniform",
+                        0.01,
+                        100.0
+                    ]
+                }
+            },
+            "pretrain": {
+                "corrupt_probability": [
+                    "uniform",
+                    0.2,
+                    0.8
+                ]
+            },
+            "training": {
+                "lr": [
+                    "loguniform",
+                    5e-05,
+                    0.005
+                ],
+                "weight_decay": [
+                    "?loguniform",
+                    0.0,
+                    1e-06,
+                    0.001
+                ]
+            }
+        },
+        "n_trials": 100,
+        "timeout": null,
+        "sampler": {
+            "seed": 0
+        }
+    },
+    "best": {
+        "program": "bin/pretrain_ae_supervised_ddp.py",
+        "environment": {
+            "CUDA_VISIBLE_DEVICES": "0,1",
+            "gpus": {
+                "driver": "450.119.04",
+                "devices": [
+                    {
+                        "name": "A100-SXM-80GB",
+                        "memory_total": 85199093760,
+                        "memory_free": 85195948032,
+                        "memory_used": 3145728,
+                        "utilization": 0
+                    },
+                    {
+                        "name": "A100-SXM-80GB",
+                        "memory_total": 85199093760,
+                        "memory_free": 85195948032,
+                        "memory_used": 3145728,
+                        "utilization": 0
+                    }
+                ]
+            },
+            "torch.version.cuda": "11.1",
+            "torch.backends.cudnn.version()": 8005,
+            "torch.cuda.nccl.version()": [
+                2,
+                10,
+                3
+            ]
+        },
+        "config": {
+            "seed": 0,
+            "data": {
+                "path": "data/covtype",
+                "T": {
+                    "seed": 0,
+                    "normalization": "quantile",
+                    "num_nan_policy": null,
+                    "cat_nan_policy": null,
+                    "cat_min_frequency": null,
+                    "cat_encoding": null,
+                    "y_policy": "default"
+                },
+                "T_cache": true
+            },
+            "model": {
+                "kind": "mlp",
+                "config": {
+                    "d_layers": [
+                        512,
+                        512,
+                        512,
+                        512
+                    ],
+                    "dropout": 0.13363830244163227
+                },
+                "default": true,
+                "checkpoint": null,
+                "num_embedding_arch": [
+                    "positional",
+                    "linear",
+                    "relu"
+                ],
+                "d_num_embedding": 127,
+                "positional_encoding": {
+                    "n": 94,
+                    "sigma": 0.1198793041963042,
+                    "trainable": true,
+                    "initialization": "normal"
+                },
+                "d_cat_embedding": null
+            },
+            "training": {
+                "batch_size": 1024,
+                "lr": 0.0003253540125814246,
+                "weight_decay": 0.0,
+                "optimizer": "AdamW",
+                "patience": 16,
+                "n_epochs": Infinity,
+                "eval_batch_size": 1024
+            },
+            "pretrain": {
+                "corrupt_probability": 0.32178032694980685,
+                "corrupt_strategy": "resample",
+                "d_hidden_head": 512,
+                "lr": 0.0003253540125814246,
+                "weight_decay": 0.0,
+                "loss_masked": false,
+                "patience": 2,
+                "n_iterations": 100000,
+                "validate_every": 10000,
+                "replace_strategy": "shuffle",
+                "n_neighbors": 20,
+                "use_target": false,
+                "early_stop_type": "pretrain"
+            },
+            "bins": null
+        },
+        "n_parameters": 5894963,
+        "epoch_size": 364,
+        "metrics": {
+            "iteration_scores": {
+                "10000": {
+                    "train": {
+                        "pretrain_loss": 0.7409264296293259
+                    },
+                    "val": {
+                        "pretrain_loss": 0.7526625543832779
+                    },
+                    "test": {
+                        "pretrain_loss": 0.7547813951969147
+                    }
+                },
+                "20000": {
+                    "train": {
+                        "pretrain_loss": 0.6960369199514389
+                    },
+                    "val": {
+                        "pretrain_loss": 0.7190199047327042
+                    },
+                    "test": {
+                        "pretrain_loss": 0.7215150743722916
+                    }
+                },
+                "30000": {
+                    "train": {
+                        "pretrain_loss": 0.6885149627923965
+                    },
+                    "val": {
+                        "pretrain_loss": 0.701081857085228
+                    },
+                    "test": {
+                        "pretrain_loss": 0.7046171277761459
+                    }
+                },
+                "40000": {
+                    "train": {
+                        "pretrain_loss": 0.6626493036746979
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6897754073143005
+                    },
+                    "test": {
+                        "pretrain_loss": 0.6923174113035202
+                    }
+                },
+                "50000": {
+                    "train": {
+                        "pretrain_loss": 0.6659450978040695
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6819555014371872
+                    },
+                    "test": {
+                        "pretrain_loss": 0.6845814734697342
+                    }
+                },
+                "60000": {
+                    "train": {
+                        "pretrain_loss": 0.6452484205365181
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6739742606878281
+                    },
+                    "test": {
+                        "pretrain_loss": 0.676763728260994
+                    }
+                },
+                "70000": {
+                    "train": {
+                        "pretrain_loss": 0.6537836939096451
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6714782863855362
+                    },
+                    "test": {
+                        "pretrain_loss": 0.6722183749079704
+                    }
+                },
+                "80000": {
+                    "train": {
+                        "pretrain_loss": 0.6429121941328049
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6672595888376236
+                    },
+                    "test": {
+                        "pretrain_loss": 0.6689970195293427
+                    }
+                },
+                "90000": {
+                    "train": {
+                        "pretrain_loss": 0.6469439417123795
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6628382205963135
+                    },
+                    "test": {
+                        "pretrain_loss": 0.665682852268219
+                    }
+                },
+                "100000": {
+                    "train": {
+                        "pretrain_loss": 0.6324167549610138
+                    },
+                    "val": {
+                        "pretrain_loss": 0.6575117260217667
+                    },
+                    "test": {
+                        "pretrain_loss": 0.6605971902608871
+                    }
+                }
+            },
+            "train": {
+                "score": 0.9949145750806111
+            },
+            "val": {
+                "score": 0.9725909511413265
+            },
+            "test": {
+                "score": 0.971377675275165
+            }
+        },
+        "best_iteration": 100000,
+        "time": "0:49:41",
+        "trial_id": 54,
+        "tuning_time": "21:27:16"
+    },
+    "time": "2 days, 3:57:44"
+}

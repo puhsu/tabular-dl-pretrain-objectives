@@ -1,0 +1,89 @@
+seed = 0
+program = "bin/rec.py"
+n_trials = 100
+
+[base_config]
+seed = 0
+
+[base_config.data]
+T_cache = true
+path = "data/fb-comments"
+
+[base_config.data.T]
+normalization = "quantile"
+
+[base_config.model]
+kind = "mlp"
+num_embedding_arch = [
+    "positional",
+    "linear",
+    "relu",
+]
+
+[base_config.model.positional_encoding]
+trainable = true
+initialization = "normal"
+
+[base_config.training]
+batch_size = 512
+patience = 16
+
+[base_config.pretrain]
+corrupt_strategy = "resample"
+patience = 2
+d_hidden_head = 512
+replace_strategy = "shuffle"
+use_target = false
+
+[space.model]
+d_num_embedding = [
+    "int",
+    1,
+    128,
+]
+
+[space.model.config]
+d_layers = [
+    "$fixed_mlp_d_layers",
+    1,
+    8,
+    512,
+]
+dropout = [
+    "?uniform",
+    0.0,
+    0.0,
+    0.5,
+]
+
+[space.model.positional_encoding]
+n = [
+    "int",
+    1,
+    128,
+]
+sigma = [
+    "loguniform",
+    0.01,
+    100.0,
+]
+
+[space.pretrain]
+corrupt_probability = [
+    "uniform",
+    0.2,
+    0.8,
+]
+
+[space.training]
+lr = [
+    "loguniform",
+    5e-05,
+    0.005,
+]
+weight_decay = [
+    "?loguniform",
+    0.0,
+    1e-06,
+    0.001,
+]

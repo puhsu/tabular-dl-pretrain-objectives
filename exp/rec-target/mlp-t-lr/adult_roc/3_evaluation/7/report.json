@@ -1,0 +1,248 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/pretrain_ae___ebd3524e553b4c429341115ff6e1a4dd.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 7,
+        "data": {
+            "path": "data/adult_roc",
+            "T": {
+                "seed": 0,
+                "normalization": "quantile",
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": true
+        },
+        "model": {
+            "kind": "mlp",
+            "config": {
+                "d_layers": [
+                    512
+                ],
+                "dropout": 0.12385151587551341
+            },
+            "default": true,
+            "checkpoint": null,
+            "num_embedding_arch": [
+                "linear",
+                "relu"
+            ],
+            "d_num_embedding": 97,
+            "d_cat_embedding": null,
+            "positional_encoding": null
+        },
+        "training": {
+            "batch_size": 256,
+            "lr": 0.0011139487467845615,
+            "weight_decay": 9.807608108521977e-06,
+            "optimizer": "AdamW",
+            "patience": 16,
+            "n_epochs": Infinity,
+            "eval_batch_size": 8192
+        },
+        "pretrain": {
+            "corrupt_probability": 0.5677776763927145,
+            "corrupt_strategy": "resample",
+            "d_hidden_head": 512,
+            "lr": 0.0011139487467845615,
+            "weight_decay": 9.807608108521977e-06,
+            "loss_masked": false,
+            "patience": 2,
+            "n_iterations": 100000,
+            "finetune_every": 10000,
+            "replace_strategy": "target_shuffle",
+            "use_target": true,
+            "predict_residual": false
+        },
+        "bins": {
+            "count": 166,
+            "value": "ratio",
+            "tree": {
+                "min_samples_leaf": 7,
+                "min_impurity_decrease": 0.0001197361537217072
+            },
+            "subsample": null
+        }
+    },
+    "epoch_size": 102,
+    "n_parameters": 678604,
+    "metrics": {
+        "iteration_scores": {
+            "10000": {
+                "train": {
+                    "score": 0.9478001097553922,
+                    "pretrain_loss": 6.844111084938049
+                },
+                "val": {
+                    "score": 0.9288390406718805,
+                    "pretrain_loss": 6.9963555335998535
+                },
+                "test": {
+                    "score": 0.9256818660362016,
+                    "pretrain_loss": 6.985448598861694
+                }
+            },
+            "20000": {
+                "train": {
+                    "score": 0.9490690965212619,
+                    "pretrain_loss": 6.810578942298889
+                },
+                "val": {
+                    "score": 0.9295065877716101,
+                    "pretrain_loss": 7.001805305480957
+                },
+                "test": {
+                    "score": 0.9261647723649197,
+                    "pretrain_loss": 6.9716713428497314
+                }
+            },
+            "30000": {
+                "train": {
+                    "score": 0.9423058023842675,
+                    "pretrain_loss": 6.795251250267029
+                },
+                "val": {
+                    "score": 0.9301387971771115,
+                    "pretrain_loss": 6.982198238372803
+                },
+                "test": {
+                    "score": 0.927556387337922,
+                    "pretrain_loss": 6.969679117202759
+                }
+            },
+            "40000": {
+                "train": {
+                    "score": 0.9481569377157295,
+                    "pretrain_loss": 6.745248913764954
+                },
+                "val": {
+                    "score": 0.9302459709869793,
+                    "pretrain_loss": 6.969160079956055
+                },
+                "test": {
+                    "score": 0.9273979764980707,
+                    "pretrain_loss": 6.967923879623413
+                }
+            },
+            "50000": {
+                "train": {
+                    "score": 0.9430397850196989,
+                    "pretrain_loss": 6.779597520828247
+                },
+                "val": {
+                    "score": 0.9302191452920906,
+                    "pretrain_loss": 6.99182653427124
+                },
+                "test": {
+                    "score": 0.9277636951879362,
+                    "pretrain_loss": 6.967707395553589
+                }
+            },
+            "60000": {
+                "train": {
+                    "score": 0.9501369161233817,
+                    "pretrain_loss": 6.748329401016235
+                },
+                "val": {
+                    "score": 0.9305182259961619,
+                    "pretrain_loss": 6.997984409332275
+                },
+                "test": {
+                    "score": 0.9270454621964531,
+                    "pretrain_loss": 6.978924036026001
+                }
+            },
+            "70000": {
+                "train": {
+                    "score": 0.9435822378451345,
+                    "pretrain_loss": 6.756550431251526
+                },
+                "val": {
+                    "score": 0.9303169043148097,
+                    "pretrain_loss": 7.003761291503906
+                },
+                "test": {
+                    "score": 0.9281579554295962,
+                    "pretrain_loss": 6.978356599807739
+                }
+            },
+            "80000": {
+                "train": {
+                    "score": 0.9433802726069204,
+                    "pretrain_loss": 6.663401126861572
+                },
+                "val": {
+                    "score": 0.9309954138379316,
+                    "pretrain_loss": 7.000974655151367
+                },
+                "test": {
+                    "score": 0.9281527175843769,
+                    "pretrain_loss": 6.9769978523254395
+                }
+            },
+            "90000": {
+                "train": {
+                    "score": 0.9432252123815207,
+                    "pretrain_loss": 6.729800462722778
+                },
+                "val": {
+                    "score": 0.9304823724231855,
+                    "pretrain_loss": 6.997914791107178
+                },
+                "test": {
+                    "score": 0.9282286715674497,
+                    "pretrain_loss": 6.984244108200073
+                }
+            },
+            "100000": {
+                "train": {
+                    "score": 0.9488202383622706,
+                    "pretrain_loss": 6.663030982017517
+                },
+                "val": {
+                    "score": 0.9307873857328574,
+                    "pretrain_loss": 7.002840518951416
+                },
+                "test": {
+                    "score": 0.927567375312624,
+                    "pretrain_loss": 6.99362325668335
+                }
+            }
+        },
+        "train": {
+            "score": 0.9433802726069204
+        },
+        "val": {
+            "score": 0.9309954138379316
+        },
+        "test": {
+            "score": 0.9281527175843769
+        }
+    },
+    "best_iteration": 80000,
+    "time": "0:14:19"
+}

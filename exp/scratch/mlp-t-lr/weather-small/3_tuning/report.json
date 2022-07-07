@@ -1,0 +1,285 @@
+{
+    "program": "/home/irubachev/repos/pretrains/bin/tune.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "3,4",
+        "gpus": {
+            "driver": "470.63.01",
+            "devices": [
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 78109671424,
+                    "memory_used": 7088373760,
+                    "utilization": 100
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 72457846784,
+                    "memory_used": 12740198400,
+                    "utilization": 100
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 80859037696,
+                    "memory_used": 4339007488,
+                    "utilization": 20
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 63494619136,
+                    "memory_used": 21703426048,
+                    "utilization": 0
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 74543464448,
+                    "memory_used": 10654580736,
+                    "utilization": 0
+                },
+                {
+                    "name": "NVIDIA A100-SXM-80GB",
+                    "memory_total": 85198045184,
+                    "memory_free": 27308261376,
+                    "memory_used": 57889783808,
+                    "utilization": 100
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 0,
+        "program": "bin/finetune_ddp.py",
+        "base_config": {
+            "seed": 0,
+            "data": {
+                "T_cache": true,
+                "path": "data/weather-small",
+                "T": {
+                    "normalization": "quantile"
+                }
+            },
+            "training": {
+                "batch_size": 1024
+            },
+            "model": {
+                "kind": "mlp",
+                "num_embedding_arch": [
+                    "linear",
+                    "relu"
+                ]
+            }
+        },
+        "space": {
+            "model": {
+                "d_num_embedding": [
+                    "int",
+                    1,
+                    128
+                ],
+                "config": {
+                    "d_layers": [
+                        "$fixed_mlp_d_layers",
+                        1,
+                        8,
+                        512
+                    ],
+                    "dropout": [
+                        "?uniform",
+                        0.0,
+                        0.0,
+                        0.5
+                    ]
+                }
+            },
+            "training": {
+                "lr": [
+                    "loguniform",
+                    5e-05,
+                    0.005
+                ],
+                "weight_decay": [
+                    "?loguniform",
+                    0.0,
+                    1e-06,
+                    0.001
+                ]
+            },
+            "bins": {
+                "count": [
+                    "int",
+                    2,
+                    256
+                ],
+                "tree": {
+                    "min_samples_leaf": [
+                        "int",
+                        1,
+                        128
+                    ],
+                    "min_impurity_decrease": [
+                        "loguniform",
+                        1e-09,
+                        0.01
+                    ]
+                }
+            }
+        },
+        "n_trials": 100,
+        "timeout": null,
+        "sampler": {
+            "seed": 0
+        }
+    },
+    "best": {
+        "program": "bin/finetune_ddp.py",
+        "environment": {
+            "CUDA_VISIBLE_DEVICES": "0,1",
+            "gpus": {
+                "driver": "470.63.01",
+                "devices": [
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 78109671424,
+                        "memory_used": 7088373760,
+                        "utilization": 100
+                    },
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 72457846784,
+                        "memory_used": 12740198400,
+                        "utilization": 100
+                    },
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 80859037696,
+                        "memory_used": 4339007488,
+                        "utilization": 0
+                    },
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 63494619136,
+                        "memory_used": 21703426048,
+                        "utilization": 0
+                    },
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 74543464448,
+                        "memory_used": 10654580736,
+                        "utilization": 0
+                    },
+                    {
+                        "name": "NVIDIA A100-SXM-80GB",
+                        "memory_total": 85198045184,
+                        "memory_free": 27308261376,
+                        "memory_used": 57889783808,
+                        "utilization": 100
+                    }
+                ]
+            },
+            "torch.version.cuda": "11.1",
+            "torch.backends.cudnn.version()": 8005,
+            "torch.cuda.nccl.version()": [
+                2,
+                10,
+                3
+            ]
+        },
+        "config": {
+            "seed": 0,
+            "data": {
+                "path": "data/weather-small",
+                "T": {
+                    "seed": 0,
+                    "normalization": "quantile",
+                    "num_nan_policy": null,
+                    "cat_nan_policy": null,
+                    "cat_min_frequency": null,
+                    "cat_encoding": null,
+                    "y_policy": "default"
+                },
+                "T_cache": true
+            },
+            "model": {
+                "kind": "mlp",
+                "config": {
+                    "d_layers": [
+                        512,
+                        512,
+                        512,
+                        512,
+                        512
+                    ],
+                    "dropout": 0.019005058843905895
+                },
+                "default": true,
+                "checkpoint": null,
+                "num_embedding_arch": [
+                    "linear",
+                    "relu"
+                ],
+                "d_num_embedding": 71,
+                "d_cat_embedding": null,
+                "positional_encoding": null
+            },
+            "training": {
+                "batch_size": 1024,
+                "lr": 0.00017406400908767894,
+                "weight_decay": 0.00048018957885530083,
+                "optimizer": "AdamW",
+                "patience": 16,
+                "n_epochs": Infinity,
+                "eval_batch_size": 1024
+            },
+            "bins": {
+                "count": 123,
+                "value": "ratio",
+                "tree": {
+                    "min_samples_leaf": 124,
+                    "min_impurity_decrease": 0.00014354877809628244
+                },
+                "subsample": null
+            }
+        },
+        "n_parameters": 6605837,
+        "prediction_type": null,
+        "epoch_size": 290,
+        "best_epoch": 25,
+        "metrics": {
+            "train": {
+                "rmse": 1.6737606672363745,
+                "score": -1.6737606672363745
+            },
+            "val": {
+                "rmse": 1.890784512539097,
+                "score": -1.890784512539097
+            },
+            "test": {
+                "rmse": 1.893717075228241,
+                "score": -1.893717075228241
+            }
+        },
+        "time": "0:09:12",
+        "trial_id": 74,
+        "tuning_time": "9:17:17"
+    },
+    "time": "14:12:44",
+    "continuations": [
+        1
+    ]
+}

@@ -1,0 +1,247 @@
+{
+    "program": "/slot/sandbox/d/in/script/0_script_unpacked/pretrains/bin/pretrain_ae___87424232f06c4dd0a251c6e0bd9256e9.py",
+    "environment": {
+        "CUDA_VISIBLE_DEVICES": "0",
+        "gpus": {
+            "driver": "450.119.04",
+            "devices": [
+                {
+                    "name": "A100-SXM-80GB",
+                    "memory_total": 85199093760,
+                    "memory_free": 85195948032,
+                    "memory_used": 3145728,
+                    "utilization": 0
+                }
+            ]
+        },
+        "torch.version.cuda": "11.1",
+        "torch.backends.cudnn.version()": 8005,
+        "torch.cuda.nccl.version()": [
+            2,
+            10,
+            3
+        ]
+    },
+    "config": {
+        "seed": 8,
+        "data": {
+            "path": "data/higgs-small_roc",
+            "T": {
+                "seed": 0,
+                "normalization": "quantile",
+                "num_nan_policy": null,
+                "cat_nan_policy": null,
+                "cat_min_frequency": null,
+                "cat_encoding": null,
+                "y_policy": "default"
+            },
+            "T_cache": true
+        },
+        "model": {
+            "kind": "mlp",
+            "config": {
+                "d_layers": [
+                    512,
+                    512
+                ],
+                "dropout": 0.3907892086927989
+            },
+            "default": true,
+            "checkpoint": null,
+            "num_embedding_arch": [
+                "positional",
+                "linear",
+                "relu"
+            ],
+            "d_num_embedding": 6,
+            "d_cat_embedding": null,
+            "positional_encoding": {
+                "n": 121,
+                "sigma": 0.013684409800283067,
+                "trainable": true,
+                "initialization": "normal"
+            }
+        },
+        "training": {
+            "batch_size": 512,
+            "lr": 0.00017951281912910444,
+            "weight_decay": 0.0,
+            "optimizer": "AdamW",
+            "patience": 16,
+            "n_epochs": Infinity,
+            "eval_batch_size": 8192
+        },
+        "pretrain": {
+            "corrupt_probability": 0.28450408416207323,
+            "corrupt_strategy": "resample",
+            "d_hidden_head": 512,
+            "lr": 0.00017951281912910444,
+            "weight_decay": 0.0,
+            "loss_masked": false,
+            "patience": 2,
+            "n_iterations": 100000,
+            "finetune_every": 10000,
+            "replace_strategy": "target_shuffle",
+            "use_target": true,
+            "predict_residual": false
+        },
+        "bins": null
+    },
+    "epoch_size": 123,
+    "n_parameters": 670928,
+    "metrics": {
+        "iteration_scores": {
+            "10000": {
+                "train": {
+                    "score": 0.8594983151325188,
+                    "pretrain_loss": 0.4288046807050705
+                },
+                "val": {
+                    "score": 0.8164624471396515,
+                    "pretrain_loss": 0.42950984835624695
+                },
+                "test": {
+                    "score": 0.8116820633152769,
+                    "pretrain_loss": 0.4316909710566203
+                }
+            },
+            "20000": {
+                "train": {
+                    "score": 0.8556281405874672,
+                    "pretrain_loss": 0.42308175191283226
+                },
+                "val": {
+                    "score": 0.8176672629394854,
+                    "pretrain_loss": 0.42387376725673676
+                },
+                "test": {
+                    "score": 0.8123602776640715,
+                    "pretrain_loss": 0.42587260405222577
+                }
+            },
+            "30000": {
+                "train": {
+                    "score": 0.8539575361756229,
+                    "pretrain_loss": 0.4175093322992325
+                },
+                "val": {
+                    "score": 0.8176671814101677,
+                    "pretrain_loss": 0.419349804520607
+                },
+                "test": {
+                    "score": 0.8127729960289353,
+                    "pretrain_loss": 0.4213826060295105
+                }
+            },
+            "40000": {
+                "train": {
+                    "score": 0.8611240369928759,
+                    "pretrain_loss": 0.41657331958413124
+                },
+                "val": {
+                    "score": 0.8190878134671823,
+                    "pretrain_loss": 0.4173516035079956
+                },
+                "test": {
+                    "score": 0.8139281608003388,
+                    "pretrain_loss": 0.41924789547920227
+                }
+            },
+            "50000": {
+                "train": {
+                    "score": 0.8559197202223187,
+                    "pretrain_loss": 0.4143802113831043
+                },
+                "val": {
+                    "score": 0.8192221574770733,
+                    "pretrain_loss": 0.4157419055700302
+                },
+                "test": {
+                    "score": 0.8140344176341261,
+                    "pretrain_loss": 0.41764721274375916
+                }
+            },
+            "60000": {
+                "train": {
+                    "score": 0.8573836726847551,
+                    "pretrain_loss": 0.4097059592604637
+                },
+                "val": {
+                    "score": 0.8199643107041863,
+                    "pretrain_loss": 0.413373664021492
+                },
+                "test": {
+                    "score": 0.814335765646389,
+                    "pretrain_loss": 0.41518184542655945
+                }
+            },
+            "70000": {
+                "train": {
+                    "score": 0.8657254830237077,
+                    "pretrain_loss": 0.4117025211453438
+                },
+                "val": {
+                    "score": 0.8202127876060828,
+                    "pretrain_loss": 0.4124418944120407
+                },
+                "test": {
+                    "score": 0.8146561693430459,
+                    "pretrain_loss": 0.4144386053085327
+                }
+            },
+            "80000": {
+                "train": {
+                    "score": 0.864701404331304,
+                    "pretrain_loss": 0.4082227908074856
+                },
+                "val": {
+                    "score": 0.8201518199822228,
+                    "pretrain_loss": 0.4115637093782425
+                },
+                "test": {
+                    "score": 0.8153860615391118,
+                    "pretrain_loss": 0.41333436965942383
+                }
+            },
+            "90000": {
+                "train": {
+                    "score": 0.8650426336135029,
+                    "pretrain_loss": 0.40536729991436005
+                },
+                "val": {
+                    "score": 0.8199059357126328,
+                    "pretrain_loss": 0.4102090746164322
+                },
+                "test": {
+                    "score": 0.8140550073741638,
+                    "pretrain_loss": 0.412127544482549
+                }
+            },
+            "100000": {
+                "train": {
+                    "score": 0.8649541409251049,
+                    "pretrain_loss": 0.40733974426984787
+                },
+                "val": {
+                    "score": 0.8204910308619122,
+                    "pretrain_loss": 0.4106747508049011
+                },
+                "test": {
+                    "score": 0.8139148656514245,
+                    "pretrain_loss": 0.4122244616349538
+                }
+            }
+        },
+        "train": {
+            "score": 0.8649541409251049
+        },
+        "val": {
+            "score": 0.8204910308619122
+        },
+        "test": {
+            "score": 0.8139148656514245
+        }
+    },
+    "best_iteration": 100000,
+    "time": "0:12:50"
+}

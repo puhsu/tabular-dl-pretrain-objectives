@@ -1,0 +1,58 @@
+seed = 0
+program = "bin/finetune.py"
+n_trials = 100
+
+[base_config]
+seed = 0
+
+[base_config.data]
+T_cache = true
+path = "data/otto_ll"
+
+[base_config.data.T]
+normalization = "__none__"
+
+[base_config.training]
+batch_size = 256
+
+[base_config.model]
+kind = "transformer"
+num_embedding_arch = [
+    "linear",
+]
+d_num_embedding = 512
+
+[space.model.config]
+n_blocks = [
+    "int",
+    1,
+    4,
+]
+attention_dropout = [
+    "uniform",
+    0.0,
+    0.5,
+]
+ffn_d_hidden_factor = [
+    "uniform",
+    0.6666666666666666,
+    2.6666666666666665,
+]
+ffn_dropout = [
+    "uniform",
+    0.0,
+    0.5,
+]
+
+[space.training]
+lr = [
+    "loguniform",
+    5e-05,
+    0.005,
+]
+weight_decay = [
+    "?loguniform",
+    0.0,
+    1e-06,
+    0.001,
+]
