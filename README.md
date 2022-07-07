@@ -3,7 +3,7 @@ This is the official code for our paper "Revisiting Pretraining Objectives for T
 
 **Check out other projects on tabular Deep Learning:** [link](https://github.com/Yura52/rtdl#papers-and-projects).
 
-Feel free to report [issues](https://github.com/puhsu/tabular-dl-pretrain-objectives/issues) and post [questions/feedback/ideas](https://github.com/Yura52/tabular-dl-pretrain-objectives/discussions).
+Feel free to report [issues](https://github.com/puhsu/tabular-dl-pretrain-objectives/issues) and post [questions/feedback/ideas](https://github.com/puhsu/tabular-dl-pretrain-objectives/discussions).
 
 ## Results
 You can view all the results and build your own tables with this [notebook](bin/Reports.ipynb).
@@ -18,7 +18,7 @@ You can view all the results and build your own tables with this [notebook](bin/
     conda create -n tdl python=3.9.7
     conda activate tdl
 
-    pip install torch==1.10.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+    pip install torch==1.11.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
     pip install -r requirements.txt
 
     # if the following commands do not succeed, update conda
@@ -53,8 +53,9 @@ Each pretraining script follows the same structure. It constructs different mode
 
 There are two variations of each script: single GPU and DDP multi-GPU (used for large dataset and models with embeddings), which are identical, except DDP related modifications. 
 
-- `bin/finetune(_ddp).py` are used to train models from scratch, or finetune pretrained checkpoints
+- `bin/finetune.py` are used to train models from scratch, or finetune pretrained checkpoints
 - `bin/contrastive.py` -- contrastive objective.
+- `bin/[rec|mask]_(supervised)` -- self-prediction objective variations
 
 ### Example
 To run the target-aware mask prediction pretraining on the california housing dataset you could run the following code snippet. It will clone the tuning config, then tune and evaluate mlp-plr with target-aware mask prediction pretraining and create the ensemble
