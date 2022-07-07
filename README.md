@@ -6,7 +6,7 @@ This is the official code for our paper "Revisiting Pretraining Objectives for T
 Feel free to report [issues](https://github.com/puhsu/tabular-dl-pretrain-objectives/issues) and post [questions/feedback/ideas](https://github.com/puhsu/tabular-dl-pretrain-objectives/discussions).
 
 ## Results
-You can view all the results and build your own tables with this [notebook](bin/Reports.ipynb).
+You can view all the results and build your own tables with this [notebook](notebooks/Reports.ipynb).
 
 ## Setup the environment
 1. Install [conda](https://docs.conda.io/en/latest/miniconda.html) (just to manage the env).
