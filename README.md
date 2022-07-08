@@ -1,5 +1,5 @@
 # Revisiting Pretraining Objectives for Tabular Deep Learning
-This is the official code for our paper "Revisiting Pretraining Objectives for Tabular Deep Learning"
+This is the official code for our paper "Revisiting Pretraining Objectives for Tabular Deep Learning" ([paper](https://arxiv.org/abs/2207.03208))
 
 **Check out other projects on tabular Deep Learning:** [link](https://github.com/Yura52/rtdl#papers-and-projects).
 
