@@ -18,7 +18,7 @@ You can view all the results and build your own tables with this [notebook](note
     conda create -n tdl python=3.9.7
     conda activate tdl
 
-    pip install torch==1.11.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+    pip install torch==1.10.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
     pip install -r requirements.txt
 
     # if the following commands do not succeed, update conda
